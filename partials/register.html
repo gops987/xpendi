@@ -1,0 +1,45 @@
+<div class="inner-bg" ng-controller="xpendi_login">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Share Xpendi</strong></h1>
+                            <div class="description">
+                            	<p>
+	                            	Create your accoubt track monthly expenditure and share it with room mates.
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Select House ID</h3>
+                            		<p>Enter Unique House Id to register:</p>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-key"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+			                    <form>
+			                    	
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-HouseId">House Id</label>
+                                        <input type="text" name="form-HouseId" ng-model="form.HouseId" placeholder="House Id..." class="form-HouseId form-control" id="form-HouseId">
+                                    </div>
+                                    
+                                    <div style="display: inline-block;width:50%;" >
+			                        <button  type="button" ng-click="authenticate()" class="btn">Check</button>
+                                    </div>
+                                    <div style="display: inline-block;width:49%;">
+                                   <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-chevron-right"></span> Right
+        </button>
+                                    </div>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
