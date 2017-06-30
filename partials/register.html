@@ -1,17 +1,17 @@
 <div class="inner-bg" ng-controller="xpendi_login">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8 col-sm-offset-2 text">
+        <div class="container" ng-model="v1">
+                <div class="row"  ng-init="v1 = 1">
+                    <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>Share Xpendi</strong></h1>
                             <div class="description">
                             	<p>
 	                            	Create your accoubt track monthly expenditure and share it with room mates.
                             	</p>
                             </div>
-                        </div>
+                            </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="row" >
+                        <div class="col-sm-6 col-sm-offset-3 form-box" ng-if="v1 == 1">
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3>Select House ID</h3>
@@ -22,24 +22,64 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form>
-			                    	
-                                    <div class="form-group">
-                                        <label class="sr-only" for="form-HouseId">House Id</label>
-                                        <input type="text" name="form-HouseId" ng-model="form.HouseId" placeholder="House Id..." class="form-HouseId form-control" id="form-HouseId">
-                                    </div>
-                                    
-                                    <div style="display: inline-block;width:50%;" >
-			                        <button  type="button" ng-click="authenticate()" class="btn">Check</button>
-                                    </div>
-                                    <div style="display: inline-block;width:49%;">
-                                   <button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-chevron-right"></span> Right
-        </button>
-                                    </div>
-			                    </form>
-		                    </div>
+			                         <form>
+    			                    	
+                                        <div class="form-group">
+                                            <label class="sr-only" for="form-HouseId">House Id</label>
+                                            <input type="text" name="form-HouseId" ng-model="form.HouseId" placeholder="House Id..." class="form-HouseId form-control" id="form-HouseId">
+                                        </div>
+                                        
+                                        <div style="display: inline-block;width:50%;" >
+                                             <a style="text-decoration: none;color:white;" ng-href="#!"><button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-chevron-left"></span> Login
+                                            </button></a>
+                                        </div>
+                                        <div style="display: inline-block;width:49%;">
+                                            <button type="button" ng-click="usr_check()" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-chevron-right"></span> 
+                                            </button>
+                                        </div>
+    			                    </form>
+    		                    </div>
+                            </div>
                         </div>
+                    <div class="row" ng-if="v1 == 2">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Add Apartment Members</h3>
+                                    <p>Enter Unique House Id to register:</p>
+                                </div>
+                                <div class="form-top-right">
+                                    <i class="fa fa-key"></i>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                        <form>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="form-memId">Member Name</label>
+                                            <div>{{ members }}</div>
+                                           <div  data-ng-repeat="mem in members">
+                                                    <input type="text" style="display:inline-block;width:35%;" ng-model="mem.name" name="form-memId" ng-model="form.memId" placeholder="Member Name..." class="form-memId form-control" id="form-memId">
+                                                    <input type="text" style="display:inline-block;width:60%;" ng-model="mem.email" name="form-memId" ng-model="form.eId" placeholder="Email Id..." class="form-memId form-control" id="form-eId">
+                                                    <button class="remove" class="btn btn-default btn-sm"  ng-show="!$first" ng-click="removeChoice()">-</button>
+                                                    <button class="addfields" class="btn btn-default btn-sm" ng-show="$last"  ng-click="addNewChoice()">Add fields</button>
+                                           </div>
+                                        </div>
+                                        <div style="display: inline-block;width:50%;" >
+                                             <button type="button" ng-click="mvback()" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-chevron-left"></span> 
+                                            </button>
+                                        </div>
+                                            <div style="display: inline-block;width:49%;">
+                                                <button type="button" class="btn btn-default btn-sm">
+                                                Create Account
+                                                    <span class="glyphicon glyphicon-chevron-right"></span> 
+                                                </button>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
                     </div>
-                </div>
-            </div>
+        </div>
+</div>

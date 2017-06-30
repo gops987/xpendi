@@ -1,8 +1,11 @@
 <?php
-	
-	$HouseId = $_POST['form-HouseId'];
-	$MemberId = $_POST['form-MemberId'];
- 	$Password = $_POST['form-password'];
+	$data = file_get_contents("php://input");
+    $postData = json_decode($data);
+
+
+	$HouseId = $postData -> HouseId;
+	$MemberId = $postData -> MemberId;
+ 	$Password = $postData -> Password;
  
  	$HouseId = stripcslashes($HouseId);
  	$MemberId = stripcslashes($MemberId);
@@ -25,8 +28,10 @@
  	
  	if ($row['c_id'] == $MemberId && $row['house_id'] == $HouseId && $row['password'] == $Password){
  	echo "Login success!!";
- 	}else{
- 	echo "Login Failed!!!!";
+ 	}
+ 	else{
+ 	echo "Login Failed !!";
+ 	
  	}
 
 ?>

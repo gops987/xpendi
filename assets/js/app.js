@@ -10,15 +10,37 @@ application.config(function($routeProvider){
 		controller : 'xpendi_login'
 	})
 })
-application.controller('xpendi_login',function($scope){ 
+application.controller('xpendi_login',function($scope,$http){ 
 
 $scope.form = {
 	HouseId : '',
 	MemberId : '',
 	Password : '',
 }
+$scope.members = [{id: 'choice1'}];
+$scope.addNewChoice = function() {
+    var newItemNo = $scope.members.length+1;
+    $scope.members.push({'id':'choice'+newItemNo});
+    console.log($scope.members)
+  };
+$scope.removeChoice = function() {
+    var lastItem = $scope.members.length-1;
+    $scope.members.splice(lastItem);
+  console.log($scope.members)
+  };
 $scope.authenticate = function(){
-	console.log($scope.form);
+	$http.post('action-user.php',$scope.form).then(function(response){
+		console.log("login request successfull",response)
+	})
+
+}
+$scope.usr_check = function(){
+
+	$scope.v1 = 2;
+}
+$scope.mvback = function(){
+
+	$scope.v1 = $scope.v1 - 1; 
 }
 
 
